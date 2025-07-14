@@ -1,12 +1,13 @@
-# Update Encounter   
+# Update Lab   
 resources:
   jobs:
-    encounter_upsertg:
-      name: Update the encounter table 
+    lab_upsert:
+      name: Update the lab table 
 
       schedule:
+        # 01=18, 11=16, 14=07 UTC=PT
         quartz_cron_expression: 0 0/15 19 * * ?
-        timezone_id: PST 
+        timezone_id: UTC 
         pause_status: UNPAUSED
       max_concurrent_runs: 4
 
@@ -15,16 +16,17 @@ resources:
       #    - your_email@example.com
 
       tasks:
-        - task_key: encounter_stg_update
+        - task_key: lab_stg_update
           notebook_task:
-            notebook_path: ../../src/encounter_stg_update.sql
+            notebook_path: ../../src/lab_stg_update.sql
 
-        - task_key: encounter_upsert
+        - task_key: lab_upsert
           notebook_task:
-            notebook_path: ../../src/encounter_upsert.sql
+            notebook_path: ../../src/lab_upsert.sql
           depends_on:
-            - task_key: encounter_stg_update
+            - task_key: lab_stg_update
 
 
       queue:
         enabled: true
+
