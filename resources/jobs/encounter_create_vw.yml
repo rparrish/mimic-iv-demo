@@ -1,5 +1,6 @@
 # Encounter View 
 resources:
+
   jobs:
     build_encounter_job:
       name: Build the tables and views for the encounter table 
