@@ -1,5 +1,5 @@
 -- Databricks notebook source
-CREATE OR REPLACE VIEW metastore.ccdm.v_encounter AS 
+CREATE OR REPLACE VIEW metastore.mimic_iv_demo.ccdm_v_encounter AS 
 (
 WITH q01 AS (
   SELECT hadm_id, subject_id, SUM(los) AS los_icu
