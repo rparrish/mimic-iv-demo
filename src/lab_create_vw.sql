@@ -1,5 +1,5 @@
 -- Databricks notebook source
-CREATE OR REPLACE VIEW metastore.ccdm.v_lab AS 
+CREATE OR REPLACE VIEW metastore.mimic_iv_demo.ccdm_v_lab AS 
 (
 SELECT
   labevent_id,
